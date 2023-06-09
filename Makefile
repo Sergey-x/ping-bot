@@ -16,3 +16,9 @@ check:
 
 env:
 	cp .env.example .env
+
+build:
+	docker build -t ping-bot .
+
+run:
+	docker run -d -it ping-bot
