@@ -1,3 +1,5 @@
+import datetime
+
 from aiogram import Bot, Router
 from aiogram.filters import Text
 from aiogram.types import Message
@@ -11,6 +13,7 @@ router_healthcheck = Router()
 
 @router_healthcheck.message(Text(text=BUTTON_HEALTHCHECK_TEXT, ignore_case=True))
 async def get_services_status(message: Message):
+    print(datetime.datetime.now(), " - check status from - ", message.chat.username)
     answer: str = "Состояние сервисов:\n"
     for healthchecker in HEALTH_CHECKERS:
         check_result = await healthchecker.check()
