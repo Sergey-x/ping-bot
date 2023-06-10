@@ -1,7 +1,5 @@
 import aiohttp
-
-
-HOST: str = "http://localhost"
+from settings.settings import HOST_JWT, HOST_JWT_FILTER, HOST_MEDIA, HOST_SCHEDULE, HOST_USER
 
 
 class BaseHealthcheck:
@@ -30,27 +28,27 @@ class BaseHealthcheck:
 
 
 class FileServiceHealthcheck(BaseHealthcheck):
-    healthcheck_url = f"{HOST}:3457/"
+    healthcheck_url = HOST_MEDIA
     service_name = "Media"
 
 
 class ScheduleServiceHealthcheck(BaseHealthcheck):
-    healthcheck_url = f"{HOST}:8083/"
+    healthcheck_url = HOST_SCHEDULE
     service_name = "Schedule"
 
 
 class UserServiceHealthcheck(BaseHealthcheck):
-    healthcheck_url = f"{HOST}:8084/"
+    healthcheck_url = HOST_USER
     service_name = "User"
 
 
 class JWTServiceHealthcheck(BaseHealthcheck):
-    healthcheck_url = f"{HOST}:8082/"
+    healthcheck_url = HOST_JWT
     service_name = "JWT"
 
 
 class JWTFilterServiceHealthcheck(BaseHealthcheck):
-    healthcheck_url = f"{HOST}:8086/"
+    healthcheck_url = HOST_JWT_FILTER
     service_name = "JWT-Filter"
 
 

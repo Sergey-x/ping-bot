@@ -11,7 +11,6 @@ class ChatIdsManager:
     async def get_from_file(cls) -> list[int]:
         async with aiofiles.open(FILENAME, "r") as f:
             chat_ids: list[int] = json.loads(await f.read())
-        print(chat_ids)
         return chat_ids
 
     @classmethod
@@ -20,7 +19,6 @@ class ChatIdsManager:
         async with aiofiles.open(FILENAME, "w") as f:
             chat_ids_str: str = json.dumps(unique_ids)
             await f.write(chat_ids_str)
-        print(chat_ids_str)
         return
 
     @classmethod

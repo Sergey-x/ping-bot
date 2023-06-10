@@ -24,7 +24,7 @@ async def check_services_continuously(bot: Bot):
             await send_all(bot, msg)
 
         prev_status = all_ok
-        await sleep(10)
+        await sleep(300)
 
 
 async def send_all(bot: Bot, msg: str):
